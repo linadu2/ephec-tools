@@ -1,14 +1,14 @@
-body .bgcolor-orange-ephec.enable-extension{
+/*body .bgcolor-orange-ephec{
     background-color: #ed7520 !important;
 }
 
-body #heinscriptionsub li a.enable-extension,body #hehorairesub li a.enable-extension, body #hejuabs li a.enable-extension, body #hesarsub li a.enable-extension, body #hecososub li a.enable-extension{
+body #heinscriptionsub li a,body #hehorairesub li a, body #hejuabs li a, body #hesarsub li a, body #hecososub li a{
     background-color: #1d5263;
 }
 
-#sidebar a.enable-extension, body #sidebar.enable-extension{
+#sidebar a, body #sidebar{
     background-color: #013647;
-}
+}*/
 
 .logo-ephec-eperso{
     height: auto;
@@ -16,4 +16,3 @@ body #heinscriptionsub li a.enable-extension,body #hehorairesub li a.enable-exte
     max-height: 41px;
     max-width: 243px;
 }
-

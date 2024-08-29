@@ -9,11 +9,13 @@
     "128": "IMG/ephec_logo.png"
   },
   "description": "Improve the design aesthetics and user experience of the EPHEC's online platforms.",
+
   "content_scripts": [
     {
       "matches": ["*://eperso.ephec.be/*"],
-      "css": ["CSS/eperso_logo.css"],
-      "js" : ["JS/eperso_logo.js"]
+      "css" : ["CSS/eperso_logo.css"],
+      "js" : ["JS/eperso_logo.js"],
+      "run_at" : "document_start"
     },
     {
       "matches": ["*://eperso.ephec.be/HeResultat/*"],
@@ -40,8 +42,8 @@
     },
     {
       "matches": ["*://portail.ephec.be/", "*://portal.ephec.be/"],
-      "js" : ["JS/portail_logo.js"],
-      "css": ["CSS/portail_main.css"]
+      "js" : ["JS/portail_logo.js"]
+
     },
     {
       "matches": ["*://eperso.ephec.be/*"],
@@ -57,7 +59,14 @@
     }
   ],
   "permissions": [
-    "storage"
+    "storage",
+    "webRequest",
+    "webRequestBlocking",
+    "webRequestFilterResponse"
+  ],
+
+  "host_permissions": [
+    "*://eperso.ephec.be/*"
   ],
   "browser_specific_settings": {
     "gecko": {

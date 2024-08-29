@@ -1,15 +1,51 @@
 let choixUtilisateur
-let newLogoPath = document.querySelector(".logo-ephec-eperso").src
+let newLogoPath
 
+document.addEventListener("DOMContentLoaded", () => {
+    newLogoPath = document.querySelector(".logo-ephec-eperso").src
+    document.querySelector(".logo-ephec-eperso").onclick = changeLogo
+    chrome.storage.sync.get(['logochoisi'], function(result) {
+        choixUtilisateur = result.logochoisi;
+        if (choixUtilisateur === "old") {
+            //changeTheme('old')
+            const style = document.createElement('style');
+            style.type = 'text/css';
+            style.textContent = `
+                                    body .bgcolor-orange-ephec{
+                                        background-color: #ed7520 !important;
+                                    }
+            
+                                    body #heinscriptionsub li a,body #hehorairesub li a, body #hejuabs li a, body #hesarsub li a, body #hecososub li a{
+                                        background-color: #1d5263;
+                                       }
+            
+                                    #sidebar a, body #sidebar{
+                                        background-color: #013647;
+                                    }
+            
+                                    .logo-ephec-eperso{
+                                        height: auto;
+                                        width: auto;
+                                        max-height: 41px;
+                                        max-width: 243px;
+                                    }`
+            ;  // This is the CSS code defined by the user
+            document.head.appendChild(style);  // Or document.documentElement (the <html> element)
+            libChangeLogo(chrome.runtime.getURL('IMG/old-logo-ephec-eperso.png'));
+        }
+    })
+})
 
 function changeLogo (){
 
     if (choixUtilisateur === "old"){
-        changeTheme('new')
+        //changeTheme('new')
+        libChangeLogo(newLogoPath);
         chrome.storage.sync.set({ 'logochoisi': 'new' })
         choixUtilisateur = "new"
     }else{
-        changeTheme('old')
+        //changeTheme('old')
+        libChangeLogo(chrome.runtime.getURL('IMG/old-logo-ephec-eperso.png'));
         chrome.storage.sync.set({ 'logochoisi': 'old' })
         choixUtilisateur = "old"
     }
@@ -20,7 +56,7 @@ function libChangeLogo (IMGpath){
 }
 
 
-chrome.storage.sync.get(['logochoisi'], function(result) {
+/*chrome.storage.sync.get(['logochoisi'], function(result) {
     choixUtilisateur = result.logochoisi;
     if(choixUtilisateur === "old"){
         changeTheme('old')
@@ -28,7 +64,7 @@ chrome.storage.sync.get(['logochoisi'], function(result) {
 });
 
 
-document.querySelector(".logo-ephec-eperso").onclick = changeLogo
+
 
 
 function changeTheme(theme){
@@ -53,4 +89,4 @@ function changeTheme(theme){
             el.classList.remove('enable-extension')
         }
     });
-}
+}*/

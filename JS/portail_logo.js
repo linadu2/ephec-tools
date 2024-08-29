@@ -18,14 +18,14 @@ function libChangeLogo (IMGpath){
     document.querySelector('.img-logo').src = IMGpath
 }
 
-chrome.storage.sync.get(['logochoisi'], function(result) {
+/*chrome.storage.sync.get(['logochoisi'], function(result) {
     choixUtilisateur = result.logochoisi;
 
     if(choixUtilisateur === "old"){
         changeTheme('old')
     }
 });
-
+*/
 
 document.querySelector('.img-logo').onclick = changeLogo
 
