@@ -33,7 +33,8 @@
     {
       "matches": ["*://moodle.ephec.be/*"],
       "js" : ["JS/moodle_logo.js"],
-      "css": ["CSS/moodle_logo.css"]
+      "css": ["CSS/moodle_logo.css"],
+      "run_at" : "document_start"
     },
     {
       "matches": ["*://moodle.ephec.be/my/*"],

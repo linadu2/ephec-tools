@@ -1,5 +1,16 @@
 let choixUtilisateur
-let NewLogoPath = document.querySelector('#logo').src
+let NewLogoPath
+
+document.addEventListener('DOMContentLoaded', () => {
+    NewLogoPath = document.querySelector('#logo').src
+    document.querySelector('#logo').onclick = changeLogo
+    chrome.storage.sync.get(['logochoisi'], function(result) {
+        choixUtilisateur = result.logochoisi;
+        if(choixUtilisateur === "old"){
+            libChangeLogo(chrome.runtime.getURL('IMG/old-logo-ephec.png'));
+        }
+    })
+})
 
 function changeLogo (){
 
@@ -18,17 +29,9 @@ function libChangeLogo (IMGpath){
     document.querySelector('#logo').src = IMGpath
 }
 
-chrome.storage.sync.get(['logochoisi'], function(result) {
+/*chrome.storage.sync.get(['logochoisi'], function(result) {
     choixUtilisateur = result.logochoisi;
     if(choixUtilisateur === "old"){
         libChangeLogo(chrome.runtime.getURL('IMG/old-logo-ephec.png'));
     }
-});
-
-
-console.log(document.querySelector('#logo'))
-document.querySelector('#logo').onclick = changeLogo
-
-
-
-
+});*/
