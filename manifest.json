@@ -42,8 +42,9 @@
     },
     {
       "matches": ["*://portail.ephec.be/", "*://portal.ephec.be/"],
-      "js" : ["JS/portail_logo.js"]
-
+      "js" : ["JS/portail_logo.js"],
+      "css" : ["CSS/portail_main.css"],
+      "run_at" : "document_start"
     },
     {
       "matches": ["*://eperso.ephec.be/*"],
